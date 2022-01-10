@@ -1,25 +1,14 @@
 // eslint-disable-next-line
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import routes from './Config/routes.js';
-import { AuthProvider } from './Context';
-import AppRoute from './Components/AppRoute';
+import Admin from './Admin/Admin';
 function App() {
   return (
-		<AuthProvider>
-			<Router>
-				<Switch>
-					{routes.map((route) => (
-						<AppRoute
-							key={route.path}
-							path={route.path}
-							component={route.component}
-							isPrivate={route.isPrivate}
-						/>
-					))}
-				</Switch>
-			</Router>
-		</AuthProvider>
+    <Router>
+      <Switch>
+        <Admin/>
+      </Switch>
+    </Router>
   );
 }
 

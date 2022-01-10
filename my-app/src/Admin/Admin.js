@@ -1,24 +1,23 @@
-import {Header,Menu,Footer} from './Layouts/Layouts'
+import {Header,Menu} from './Layouts/Layouts'
 import {
-  BrowserRouter as Router,
-  Switch,
   Route,
 } from "react-router-dom";
 import React from 'react'
+import Dashboard_ToDo_List from './ToDo_List/Dashboard_ToDo_List'
+import Add_ToDo_List from './ToDo_List/Add_ToDo_List'
+import Edit_ToDo_List from './ToDo_List/Edit_ToDo_List'
 export default function Admin() {
   
     return (
         <div className="wrapper">
           
-          {/* <div className="preloader flex-column justify-content-center align-items-center">
-            <img className="animation__shake" src="/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height={60} width={60} />
-          </div> */}
-
             <Header />
             <Menu />
+            <Route exact path="/" component={Dashboard_ToDo_List}/>
+            <Route exact path="/Add" component={Add_ToDo_List}/>
+            <Route exact path="/Edit/:id" component={Edit_ToDo_List}/>
             
 
-            <Footer />
         </div>
     )
 }
